@@ -225,7 +225,7 @@ roles:
             apt-get install -y curl
             curl -O http://apt.puppetlabs.com/puppetlabs-release-$(lsb_release -c -s).deb
             dpkg -i puppetlabs-release-$(lsb_release -c -s).deb
-            apt-get -y -f -m update
+            apt-get -y -m update
           }
 
   poss-pc1-repos:

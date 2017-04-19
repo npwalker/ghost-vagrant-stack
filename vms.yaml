@@ -1,0 +1,17 @@
+---
+# Keep the default Vagrant SSH key. It's publicly available and thus
+# "insecure", but these VMs aren't for production use and having a well-known
+# key allows for easy automation and documentation.
+ssh:
+  insert_key: false
+
+vms:
+  - name: ghost
+    box: ubuntu/xenial64
+    roles:
+      - site_pp
+      - install_modules
+      - install_oss_puppet-agent
+      - poss-pc1-repos
+      - 1gb-memory
+      - base
