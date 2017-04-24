@@ -1,0 +1,13 @@
+---
+vms:
+  - name: ghost
+    box: ubuntu/xenial64 
+    roles:
+      - apply_site_pp
+      - install_modules
+      - install_r10k
+      - install_packages
+      - install_oss_puppet-agent
+      - poss-pc1-repos
+      - 1gb-memory
+      - base

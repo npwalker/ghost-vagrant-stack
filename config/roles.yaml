@@ -1,0 +1,26 @@
+---
+roles:
+  install_oss_puppet-agent:
+    provisioners:
+      - type: shell
+        inline: 'apt-get install -y puppet-agent; ln -s /opt/puppetlabs/puppet/bin/puppet /usr/local/bin/puppet'
+
+  install_packages:
+    provisioners:
+      - type: shell
+        inline: 'bash -c "puppet apply /vagrant/puppet_code/packages.pp"'
+
+  install_r10k:
+    provisioners:
+      - type: shell
+        inline: '/opt/puppetlabs/puppet/bin/gem install r10k; ln -s /opt/puppetlabs/puppet/bin/r10k /usr/local/bin/r10k'
+
+  install_modules:
+    provisioners:
+      - type: shell
+        inline: 'r10k puppetfile install --moduledir /etc/puppetlabs/code/environments/production/modules/ --puppetfile /vagrant/Puppetfile'
+
+  apply_site_pp:
+    provisioners:
+      - type: shell
+        inline: 'puppet apply /vagrant/site.pp'

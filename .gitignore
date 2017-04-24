@@ -5,6 +5,5 @@
 Gemfile.local
 Gemfile.lock
 bin
-config/*.yaml
 src/puppetlabs
 ubuntu-xenial-16.04-cloudimg-console.log
